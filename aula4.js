@@ -20,5 +20,5 @@ if (imc < 17) {
 } else if (imc < 39.99) {
     console.log ('Obesidade II');
 } else if (imc > 40) {
-    console.log ('Thais Carla');
+    console.log ('Obesidade III (mórbida)');
 } 
