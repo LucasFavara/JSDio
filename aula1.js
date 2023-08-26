@@ -6,4 +6,4 @@ var resultado = distancia / gasto * combustivel;
 
 console.log(`Foram gastos ${resultado.toFixed(2)} reais`);
 
-console.log('teste push')
+console.log('teste push');
