@@ -1,4 +1,4 @@
-const lucas = {
+const pessoa = {
     nome: "Lucas N Favarel",
     idade: 27,
 
@@ -7,7 +7,13 @@ const lucas = {
     }
 };
 
-lucas.descrever();
+
+
+const atributo = 'idade';
+
+console.log(pessoa['nome']);
+
+//lucas.descrever();
 
 // lucas.altura = 1.85;
 
