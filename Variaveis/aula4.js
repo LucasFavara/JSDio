@@ -1,7 +1,7 @@
 //CALCULO DE IMC
 
-var peso = 50;
-var altura = 1.85;
+var peso = 74;
+var altura = 1.69;
 var quadrado = altura * altura;
 var imc = peso / quadrado;
 
