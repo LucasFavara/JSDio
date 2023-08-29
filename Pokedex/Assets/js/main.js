@@ -6,33 +6,43 @@
 //const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
 // function convertPokemonTypeToLi(pokemonTypes) {
-//     return pokemonTypes.map((typeSlot) => `<li class="type">${type}</li>`)
+    //     return pokemonTypes.map((typeSlot) => `<li class="type">${type}</li>`)
 // } 
 
+const pokemonList = document.getElementById('pokemonList')
+const loadMoreButton = document.getElementById('loadMoreButton')
+const limit = 21
+let offset = 0;
 
-function convertPokemonToLi(pokemon) {
-    return `
-        <li class="pokemon ${pokemon.type}">
-            <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
+function loadPokemonItens(offset, limit) {
+    
+    
+    pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+        const newHTML = pokemons.map((pokemon) => `
+            <li class="pokemon ${pokemon.type}">
+                <span class="number">#${pokemon.number}</span>
+                <span class="name">${pokemon.name}</span>
 
-            <div class="detail">
-                <ol class="types">
-                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-                </ol>
+                <div class="detail">
+                    <ol class="types">
+                        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+                    </ol>
 
-                <img src="${pokemon.photo}" alt="${pokemon.name}">
-            </div>
-        </li>
-    `
+                    <img src="${pokemon.photo}" alt="${pokemon.name}">
+                </div>
+            </li>
+        `).join('')
+        pokemonList.innerHTML += newHTML
+    })
 }
 
-const pokemonList = document.getElementById('pokemonList')
+loadPokemonItens(offset, limit)
 
-pokeApi.getPokemons().then((pokemons = []) => {
-        const newHTML = pokemons.map(convertPokemonToLi).join('')
-        pokemonList.innerHTML = newHTML
-    })
+loadMoreButton.addEventListener('click', () => {
+    offset += limit
+    loadPokemonItens(offset, limit)
+})
+
         // const newList = pokemons.map((pokemon) => {
         //     return convertPokemonToLi(pokemon)
         // })
@@ -64,3 +74,7 @@ pokeApi.getPokemons().then((pokemons = []) => {
 // .finally(function (){
 //     console.log('Requisição concluida');
 // })
+
+// function convertPokemonToLi(pokemon) {
+//     return 
+// }
