@@ -84,6 +84,7 @@
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    box-shadow: 3px 3px 10px black;
 }
 
 .pokemon .number {
@@ -113,7 +114,7 @@
 }
 
 .pokemon .detail .types .type {
-    color: white;
+    color: black;
     padding: 0.25rem 0.5rem;
     margin: 0.25rem 0;
     font-size: 0.625rem;
